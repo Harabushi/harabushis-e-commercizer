@@ -87,9 +87,9 @@ router.put('/:id', (req, res) => {
   })
   .then((tag) => {
     // find all associated products from ProductTag
-    return (ProductTag.findAll({ where: { tag_id: req.params.id } }), tag);
+    return ProductTag.findAll({ where: { tag_id: req.params.id } });
   })
-  .then((productTags, tag) => {   
+  .then((productTags) => {   
     
     if (req.body.productIds) {
       // get list of current product_ids 
